@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import L from "leaflet"; // Import Leaflet
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import pins from "./Pins.json"; // Import JSON directly
 
-// Import your custom marker image
-import customMarkerIcon from "./images/blue.png"; // Adjust the path as needed
+// Import your custom marker images
+import defaultMarkerIcon from "./images/blue.png"; // Default marker image
+import activeMarkerIcon from "./images/green.png"; // Active marker image
 
 interface MarkerData {
   roomID: number;
@@ -14,14 +15,23 @@ interface MarkerData {
   classroom: string;
 }
 
+const defaultIcon = L.icon({
+  iconUrl: defaultMarkerIcon,
+  iconSize: [50, 50],
+});
 
-const customIcon = L.icon({
-  iconUrl: customMarkerIcon,
-  iconSize: [30, 30], 
+const activeIcon = L.icon({
+  iconUrl: activeMarkerIcon,
+  iconSize: [50, 50],
 });
 
 const MapCon: React.FC = () => {
-  const [markers] = useState<MarkerData[]>(pins); // Use imported data
+  const [markers] = useState<MarkerData[]>(pins); 
+  const [activeMarkerId, setActiveMarkerId] = useState<number | null>(null); 
+
+  const handleMarkerClick = (markerId: number) => {
+    setActiveMarkerId(markerId); // Set the clicked marker as active
+  };
 
   return (
     <MapContainer style={{ height: "100vh" }} center={[8.35985, 124.869077]} zoom={18}>
@@ -33,7 +43,10 @@ const MapCon: React.FC = () => {
         <Marker
           key={marker.roomID}
           position={[marker.latitude, marker.longitude]}
-          icon={customIcon}
+          icon={activeMarkerId === marker.roomID ? activeIcon : defaultIcon} 
+          eventHandlers={{
+            click: () => handleMarkerClick(marker.roomID), 
+          }}
         >
           <Popup>{marker.classroom}</Popup>
         </Marker>
