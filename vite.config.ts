@@ -10,6 +10,7 @@ export default defineConfig({
     react(),
     legacy()
   ],
+  base:"Ordis",
   test: {
     globals: true,
     environment: 'jsdom',
