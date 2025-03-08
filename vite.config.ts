@@ -11,7 +11,7 @@ export default defineConfig({
     legacy()
   ],
   base:"Ordis",
-  test: {
+  test: { 
     globals: true,
     environment: 'jsdom',
     setupFiles: './src/setupTests.ts',
