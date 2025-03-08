@@ -32,7 +32,7 @@ import {
       <IonRouterOutlet>
 
         <Route exact path="/Ordis/app/home/maps" render={Maps} />
-        <Route exact path="/Ordis/app/home/voiceCom" render={VoiceCom} />
+        <Route exact path="/Ordis/app/home/voiceCom" component={VoiceCom} />
 
 
         <Route exact path="/Ordis/app/home">
