@@ -25,9 +25,9 @@ const VoiceCommand: React.FC = () => {
 
   return (
     <IonPage>
-      <IonContent className="ion-padding">
+      <IonContent>
         <IonText>
-          <h1>Voice Command Demo</h1>
+          <h1>_</h1>
           <p>Click the button and say something!</p>
         </IonText>
         <IonButton onClick={startListening} disabled={isListening}>
