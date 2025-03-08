@@ -5,7 +5,7 @@
     Popup
   } from 'react-leaflet';
   import "leaflet/dist/leaflet.css"
-  const Map: React.FC = () => {
+  const MapCon: React.FC = () => {
 return(
 <MapContainer
           style={{ height: "100vh" }}
@@ -24,4 +24,4 @@ return(
 </MapContainer>
 );
 };
- export default Map;
+ export default MapCon;

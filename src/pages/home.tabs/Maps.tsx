@@ -7,7 +7,7 @@ import {
       IonToolbar 
   } from '@ionic/react';
   import { lazy, Suspense } from "react";
-  const MapView = lazy(() => import("./Map"));
+  const MapView = lazy(() => import("../../components/MapCon"));
   const Maps: React.FC = () => {
     return (
       <IonPage>
