@@ -20,7 +20,7 @@ import About from './About';
   const Menu: React.FC = () => {
     const path = [
         {name:'Home', url: '/Ordis/app/home', icon: homeOutline},
-        {name:'About', url: '/Ordis-lab/app/about', icon: rocketOutline},
+        {name:'About', url: '/Ordis/app/about', icon: rocketOutline},
     ]
 
     return (

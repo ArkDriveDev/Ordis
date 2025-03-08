@@ -3,7 +3,6 @@ import {
     IonButtons,
       IonContent, 
       IonHeader, 
-      IonMenuButton, 
       IonPage, 
       IonTitle, 
       IonToolbar 
@@ -20,9 +19,6 @@ import {
           </IonToolbar>
         </IonHeader>
         <IonContent fullscreen>
-          <IonButton routerLink="/Ordis/app/home/" expand="full">
-              Details
-          </IonButton>
         </IonContent>
       </IonPage>
     );
