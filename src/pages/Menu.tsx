@@ -58,10 +58,10 @@ import About from './About';
         <IonContent className="ion-padding">
         <IonRouterOutlet id="main">
         <Route exact path="/Ordis/app/home" component={Home} />
-                    <Route exact path="/Ordis-lab/app/about" component={About} />
+                    <Route exact path="/Ordis/app/about" component={About} />
 
-                    <Route exact path="/Ordis-lab/app">
-                        <Redirect to="/Ordis-lab/app/home"/>
+                    <Route exact path="/Ordis/app">
+                        <Redirect to="/Ordis/app/home"/>
                     </Route>
                 </IonRouterOutlet>
         </IonContent>
