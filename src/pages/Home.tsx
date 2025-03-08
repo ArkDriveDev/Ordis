@@ -1,25 +1,31 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import './Home.css';
-
-const Home: React.FC = () => {
-  return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Blank</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
+import { 
+  IonButton,
+    IonButtons,
+      IonContent, 
+      IonHeader, 
+      IonMenuButton, 
+      IonPage, 
+      IonTitle, 
+      IonToolbar 
+  } from '@ionic/react';
+  
+  const Home: React.FC = () => {
+    return (
+      <IonPage>
+        <IonHeader>
           <IonToolbar>
-            <IonTitle size="large">Blank</IonTitle>
+            <IonButtons slot='start'>
+            </IonButtons>
+            <IonTitle>Home</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer />
-      </IonContent>
-    </IonPage>
-  );
-};
-
-export default Home;
+        <IonContent fullscreen>
+          <IonButton routerLink="/Ordis/app/home/" expand="full">
+              Details
+          </IonButton>
+        </IonContent>
+      </IonPage>
+    );
+  };
+  
+  export default Home;
