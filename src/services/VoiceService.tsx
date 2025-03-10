@@ -10,7 +10,7 @@ class VoiceService {
         this.recognition.interimResults = false; // Only final results
         this.recognition.lang = "en-US"; // Set language
       } else {
-        console.error("Speech Recognition not supported in this browser.");
+        alert("Speech Recognition not supported in this browser.");
       }
     }
   
@@ -26,11 +26,18 @@ class VoiceService {
           this.stopListening();
         };
   
-        this.recognition.onerror = (event: SpeechRecognitionErrorEvent) => {
-          console.error("Speech recognition error:", event.error);
+        this.recognition.onerror = (event: Event) => {
+          const errorEvent = event as SpeechRecognitionErrorEvent;
+          console.error("Speech recognition error:", errorEvent.error);
+        
+          if (errorEvent.error === "network") {
+            alert("Network error: Please check your internet connection and try again.");
+          } else {
+            alert(`Error: ${errorEvent.error}`);
+          }
+        
           this.stopListening();
         };
-  
         this.recognition.onend = () => {
           this.isListening = false;
         };
