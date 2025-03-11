@@ -8,9 +8,12 @@ import {
   IonPage, 
   IonTitle, 
   IonToolbar,
-  useIonRouter
+  useIonRouter,
+  IonRouterOutlet, 
  } from "@ionic/react";
+ import {Route} from 'react-router';
 import VoiceService from "../services/VoiceService";
+import About from "../pages/About";
 
 const VoiceCommand: React.FC = () => {
   const navigation = useIonRouter();
@@ -55,6 +58,10 @@ const VoiceCommand: React.FC = () => {
           {isListening ? "Listening..." : "Start Voice Command"}
         </IonButton>
         {command && <p>You said: <strong>{command}</strong></p>}
+
+         <IonRouterOutlet id="main">
+         <Route exact path="/Ordis/app/about" component={About} />
+         </IonRouterOutlet>
       </IonContent>
     </IonPage>
   );
