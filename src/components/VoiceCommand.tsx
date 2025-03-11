@@ -7,11 +7,13 @@ import {
   IonHeader, 
   IonPage, 
   IonTitle, 
-  IonToolbar 
+  IonToolbar,
+  useIonRouter
  } from "@ionic/react";
 import VoiceService from "../services/VoiceService";
 
 const VoiceCommand: React.FC = () => {
+  const navigation = useIonRouter();
   const [command, setCommand] = useState<string>("");
   const [isListening, setIsListening] = useState<boolean>(false);
 
@@ -20,7 +22,11 @@ const VoiceCommand: React.FC = () => {
     // Add logic to handle specific commands
     if (command.includes("hello")) {
       alert("Hello! How can I help you?");
-    } else if (command.includes("time")) {
+    } 
+    else if(command.includes("About")) { 
+      navigation.push('/Ordis/app/about','forward','replace');
+    }
+    else if (command.includes("time")) {
       alert(`The time is ${new Date().toLocaleTimeString()}`);
     } else {
       alert(`You said: ${command}`);
