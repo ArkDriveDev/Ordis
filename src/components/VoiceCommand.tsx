@@ -58,9 +58,10 @@ const VoiceCommand: React.FC = () => {
           {isListening ? "Listening..." : "Start Voice Command"}
         </IonButton>
         {command && <p>You said: <strong>{command}</strong></p>}
-
-         <IonRouterOutlet id="main">
-         <Route exact path="/Ordis/app/about" component={About} />
+      </IonContent>
+      <IonContent className="ion-padding"> 
+      <IonRouterOutlet id="main">
+            <Route exact path="/Ordis/app/about" component={About} />
          </IonRouterOutlet>
       </IonContent>
     </IonPage>
