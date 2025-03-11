@@ -23,7 +23,7 @@ const VoiceCommand: React.FC = () => {
     if (command.includes("hello")) {
       alert("Hello! How can I help you?");
     } 
-    else if(command.includes("About")) { 
+    else if(command.includes("about")) { 
       navigation.push('/Ordis/app/about','forward','replace');
     }
     else if (command.includes("time")) {
