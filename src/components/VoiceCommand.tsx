@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import { IonButton, IonContent, IonPage, IonText } from "@ionic/react";
+import { 
+  IonButton,  
+  IonText,
+  IonButtons,
+  IonContent, 
+  IonHeader, 
+  IonPage, 
+  IonTitle, 
+  IonToolbar 
+ } from "@ionic/react";
 import VoiceService from "../services/VoiceService";
 
 const VoiceCommand: React.FC = () => {
@@ -25,9 +34,15 @@ const VoiceCommand: React.FC = () => {
 
   return (
     <IonPage>
+       <IonHeader>
+                <IonToolbar>
+                  <IonButtons slot='start'>
+                  </IonButtons>
+                  <IonTitle>Voice Command</IonTitle>
+                </IonToolbar>
+        </IonHeader>
       <IonContent>
-        <IonText>
-          <h1>__</h1>
+      <IonText>
           <p>Click the button and say something!</p>
         </IonText>
         <IonButton onClick={startListening} disabled={isListening}>

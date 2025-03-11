@@ -10,11 +10,11 @@ import {
   import {map,mic} from 'ionicons/icons';
   import { Route, Redirect } from 'react-router';
   import Maps from './home.tabs/Maps';
-  import VoiceCom from './home.tabs/VoiceCom';
+  import VoiceCommand from '../components/VoiceCommand';
   const Home: React.FC = () => {
     const tabs = [
       {name:'Maps', tab:'maps',url: '/Ordis/app/home/maps', icon:map},
-      {name:'Voice Command', tab:'voiceCom',url: '/Ordis/app/home/voiceCom', icon:mic},
+      {name:'Voice Command', tab:'voiceCommand',url: '/Ordis/app/home/voiceCommand', icon:mic},
     ]
     return (
       <IonReactRouter>
@@ -32,7 +32,7 @@ import {
       <IonRouterOutlet>
 
         <Route exact path="/Ordis/app/home/maps" render={Maps} />
-        <Route exact path="/Ordis/app/home/voiceCom" render={VoiceCom} />
+        <Route exact path="/Ordis/app/home/voiceCommand" component={VoiceCommand} />
 
 
         <Route exact path="/Ordis/app/home">
