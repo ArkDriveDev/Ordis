@@ -13,7 +13,6 @@ import {
 import VoiceService from "../services/VoiceService";
 
 const VoiceCommand: React.FC = () => {
-  const navigation = useIonRouter();
   const [command, setCommand] = useState<string>("");
   const [isListening, setIsListening] = useState<boolean>(false);
 
@@ -25,8 +24,7 @@ const VoiceCommand: React.FC = () => {
       alert("Hello! How can I help you?");
     } 
     else if (command.includes("about")) { 
-      alert("Navigating to /Ordis/app/about"); // Debugging
-      navigation.push('/Ordis/app/about', 'forward', 'replace');
+      window.location.href = "/Ordis/app/about";
     }
     else if (command.includes("time")) {
       alert(`The time is ${new Date().toLocaleTimeString()}`);
