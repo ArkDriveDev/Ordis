@@ -19,12 +19,14 @@ const VoiceCommand: React.FC = () => {
 
   const handleVoiceCommand = (command: string) => {
     setCommand(command);
-    // Add logic to handle specific commands
+   alert(`Command received:" ${command}`); // Debugging
+  
     if (command.includes("helloooo")) {
       alert("Hello! How can I help you?");
     } 
-    else if(command.includes("about")) { 
-      navigation.push('/Ordis/app/about','forward','replace');
+    else if (command.includes("about")) { 
+      alert("Navigating to /Ordis/app/about"); // Debugging
+      navigation.push('/Ordis/app/about', 'forward', 'replace');
     }
     else if (command.includes("time")) {
       alert(`The time is ${new Date().toLocaleTimeString()}`);
@@ -44,7 +46,7 @@ const VoiceCommand: React.FC = () => {
                 <IonToolbar>
                   <IonButtons slot='start'>
                   </IonButtons>
-                  <IonTitle>Voice Command</IonTitle>
+                  <IonTitle>Voice Recogniton</IonTitle>
                 </IonToolbar>
         </IonHeader>
       <IonContent>
