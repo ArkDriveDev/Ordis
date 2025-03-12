@@ -58,6 +58,9 @@ const VoiceCommand: React.FC = () => {
         <IonButton onClick={startListening} disabled={isListening}>
           {isListening ? "Listening..." : "Start Voice Command"}
         </IonButton>
+        <IonButton onClick={() => goAbout()} expand="full">
+                About
+            </IonButton>
         {command && <p>You said: <strong>{command}</strong></p>}
       </IonContent>
     </IonPage>
