@@ -7,7 +7,7 @@ import {
       IonToolbar 
   } from '@ionic/react';
 
-  import VoiceCommand from "../../components/VoiceCommand";
+  import VoiceCommand from "../VoiceCommand";
 
 
   const VoiceCom: React.FC = () => {

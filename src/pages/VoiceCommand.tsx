@@ -20,7 +20,7 @@ const VoiceCommand: React.FC = () => {
   const handleVoiceCommand = (command: string) => {
     setCommand(command);
     // Add logic to handle specific commands
-    if (command.includes("hello")) {
+    if (command.includes("helloooo")) {
       alert("Hello! How can I help you?");
     } 
     else if(command.includes("about")) { 

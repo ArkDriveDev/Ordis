@@ -10,7 +10,7 @@ import {
   import {map,mic} from 'ionicons/icons';
   import { Route, Redirect } from 'react-router';
   import Maps from './home.tabs/Maps';
-  import VoiceCommand from '../components/VoiceCommand';
+  import VoiceCommand from './VoiceCommand';
   const Home: React.FC = () => {
     const tabs = [
       {name:'Maps', tab:'maps',url: '/Ordis/app/home/maps', icon:map},
