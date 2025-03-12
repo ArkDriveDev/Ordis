@@ -57,7 +57,7 @@ import About from './About';
         </IonHeader>
         <IonContent className="ion-padding">
         <IonRouterOutlet id="main">
-        <Route exact path="/Ordis/app/home" component={Home} />
+                    <Route exact path="/Ordis/app/home" component={Home} />
                     <Route exact path="/Ordis/app/about" component={About} />
 
                     <Route exact path="/Ordis/app">

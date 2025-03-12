@@ -11,6 +11,7 @@ import {
   import { Route, Redirect } from 'react-router';
   import Maps from './home.tabs/Maps';
   import VoiceCommand from './VoiceCommand';
+import About from './About';
   const Home: React.FC = () => {
     const tabs = [
       {name:'Maps', tab:'maps',url: '/Ordis/app/home/maps', icon:map},
@@ -33,6 +34,8 @@ import {
 
         <Route exact path="/Ordis/app/home/maps" render={Maps} />
         <Route exact path="/Ordis/app/home/voiceCommand" component={VoiceCommand} />
+        <Route exact path="/Ordis/app/about" component={About} />
+
 
 
         <Route exact path="/Ordis/app/home">
