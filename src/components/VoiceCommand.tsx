@@ -9,32 +9,19 @@ import {
   IonTitle, 
   IonToolbar,
   useIonRouter
- } from "@ionic/react";
+} from "@ionic/react";
 import VoiceService from "../services/VoiceService";
+import handleCommand from "../services/CommandList"; // Import the command handler
 
 const VoiceCommand: React.FC = () => {
   const navigation = useIonRouter();
-  const goAbout = () => {
-    navigation.push('/Ordis/app/about', 'forward', 'replace');
-  };
   const [command, setCommand] = useState<string>("");
   const [isListening, setIsListening] = useState<boolean>(false);
 
   const handleVoiceCommand = (command: string) => {
     setCommand(command);
-   alert(`Command received:" ${command}`); // Debugging
-  
-    if (command.includes("hello")) {
-      alert("Hello! How can I help you?");
-    } 
-    else if (command.includes("about")) { 
-      goAbout();
-    }
-    else if (command.includes("time")) {
-      alert(`The time is ${new Date().toLocaleTimeString()}`);
-    } else {
-      alert(`You said: ${command}`);
-    }
+    alert(`Command received: ${command}`); // Debugging
+    handleCommand(command, navigation); // Use the command handler
   };
 
   const startListening = () => {
@@ -44,15 +31,15 @@ const VoiceCommand: React.FC = () => {
 
   return (
     <IonPage>
-       <IonHeader>
-                <IonToolbar>
-                  <IonButtons slot='start'>
-                  </IonButtons>
-                  <IonTitle>Voice Recogniton</IonTitle>
-                </IonToolbar>
-        </IonHeader>
+      <IonHeader>
+        <IonToolbar>
+          <IonButtons slot='start'>
+          </IonButtons>
+          <IonTitle>Voice Recognition</IonTitle>
+        </IonToolbar>
+      </IonHeader>
       <IonContent>
-      <IonText>
+        <IonText>
           <p>Click the button and say something!</p>
         </IonText>
         <IonButton onClick={startListening} disabled={isListening}>
