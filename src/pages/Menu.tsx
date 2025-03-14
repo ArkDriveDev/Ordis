@@ -13,7 +13,8 @@ import {
       IonTitle, 
       IonToolbar,
       IonText,
-      useIonRouter
+      useIonRouter,
+      IonPopover
   } from '@ionic/react'
 import React, { useState } from "react";
 import {homeOutline, logOutOutline, rocketOutline} from 'ionicons/icons';
@@ -22,6 +23,7 @@ import Home from './Home';
 import About from './About';
 import VoiceService from "../services/VoiceService";
 import CommandList from "../services/CommandList"; 
+import Aicom from '../components/images/AIf.gif'; 
 
   const Menu: React.FC = () => {
     const navigation = useIonRouter();
@@ -64,10 +66,11 @@ import CommandList from "../services/CommandList";
                 <IonText>
                     <p>Click the button and say something!</p>
                  </IonText>
-                <IonButton onClick={startListening} disabled={isListening}>
-                      {isListening ? "Listening..." : "Start Voice Command"}
-                </IonButton>
-                {command && <p>You said: <strong>{command}</strong></p>}
+                 <img
+                    src={Aicom}
+                    onClick={startListening} 
+                style={{ cursor: 'pointer' }}
+      />
 
         <IonButton routerLink="/Ordis" routerDirection="back" expand="full">
                             <IonIcon icon={logOutOutline} slot="start"> </IonIcon>
