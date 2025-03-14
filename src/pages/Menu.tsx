@@ -62,16 +62,11 @@ import Aicom from '../components/images/AIf.gif';
                                 </IonItem>
                             </IonMenuToggle>
                         ))}
-                      <IonContent>
-                        <IonPopover trigger="click-trigger" triggerAction="click">
-                        <IonContent class="ion-padding">Hi I'm Ordis! what can I do for you?</IonContent>
-                        </IonPopover>
-                       <img
-                          src={Aicom}
-                          onClick={startListening} 
-                          style={{ cursor: 'pointer' }}
-                        />
-                    </IonContent>
+                    <img
+                      src={Aicom}
+                      onClick={startListening} 
+                      style={{ cursor: 'pointer' }}
+                    />
                     <IonButton routerLink="/Ordis" routerDirection="back" expand="full">
                       <IonIcon icon={logOutOutline} slot="start"> </IonIcon>
                       Logout
