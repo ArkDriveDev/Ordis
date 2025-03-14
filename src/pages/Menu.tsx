@@ -16,7 +16,7 @@ import {
       useIonRouter,
       IonPopover
   } from '@ionic/react'
-import React, { useState } from "react";
+import React, { useState,useRef} from "react";
 import {homeOutline, logOutOutline, rocketOutline} from 'ionicons/icons';
 import { Redirect, Route } from 'react-router';
 import Home from './Home';
@@ -44,7 +44,7 @@ import Aicom from '../components/images/AIf.gif';
         {name:'Home', url: '/Ordis/app/home', icon: homeOutline},
         {name:'About', url: '/Ordis/app/about', icon: rocketOutline},
     ]
-
+  const [showPopover, setShowPopover] = useState(false);
     return (
         <>
       <IonMenu contentId="main-content">
@@ -62,27 +62,27 @@ import Aicom from '../components/images/AIf.gif';
                                 </IonItem>
                             </IonMenuToggle>
                         ))}
-
-                <IonText>
-                    <p>Click the button and say something!</p>
-                 </IonText>
-                 <img
-                    src={Aicom}
-                    onClick={startListening} 
-                style={{ cursor: 'pointer' }}
-      />
-
-        <IonButton routerLink="/Ordis" routerDirection="back" expand="full">
-                            <IonIcon icon={logOutOutline} slot="start"> </IonIcon>
-                        Logout
-                        </IonButton>
+                      <IonContent>
+                        <IonPopover trigger="click-trigger" triggerAction="click">
+                        <IonContent class="ion-padding">Hi I'm Ordis! what can I do for you?</IonContent>
+                        </IonPopover>
+                       <img
+                          src={Aicom}
+                          onClick={startListening} 
+                          style={{ cursor: 'pointer' }}
+                        />
+                    </IonContent>
+                    <IonButton routerLink="/Ordis" routerDirection="back" expand="full">
+                      <IonIcon icon={logOutOutline} slot="start"> </IonIcon>
+                      Logout
+                    </IonButton>
         </IonContent>
       </IonMenu>
       <IonPage id="main-content">
         <IonHeader>
           <IonToolbar>
             <IonButtons slot="start">
-              <IonMenuButton></IonMenuButton>
+              <IonMenuButton id="click-trigger"></IonMenuButton>
             </IonButtons>
             <IonTitle>Menu</IonTitle>
           </IonToolbar>
