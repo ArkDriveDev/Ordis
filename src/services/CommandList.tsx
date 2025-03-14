@@ -1,6 +1,4 @@
-// src/services/CommandList.tsx
 import { useIonRouter } from "@ionic/react";
-
 const CommandList = (command: string, navigation: ReturnType<typeof useIonRouter>) => {
   if (command.includes("hello")) {
     alert("Hello! How can I help you?");
@@ -13,6 +11,7 @@ const CommandList = (command: string, navigation: ReturnType<typeof useIonRouter
   } else {
     alert(`You said: ${command}`);
   }
+
 };
 
-export default CommandList ;
+export default CommandList;

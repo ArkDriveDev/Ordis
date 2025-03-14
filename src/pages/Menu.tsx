@@ -11,13 +11,33 @@ import {
       IonPage, 
       IonRouterOutlet, 
       IonTitle, 
-      IonToolbar 
+      IonToolbar,
+      IonText,
+      useIonRouter
   } from '@ionic/react'
-  import {homeOutline, logOutOutline, rocketOutline} from 'ionicons/icons';
+import React, { useState } from "react";
+import {homeOutline, logOutOutline, rocketOutline} from 'ionicons/icons';
 import { Redirect, Route } from 'react-router';
 import Home from './Home';
 import About from './About';
+import VoiceService from "../services/VoiceService";
+import CommandList from "../services/CommandList"; 
+
   const Menu: React.FC = () => {
+    const navigation = useIonRouter();
+    const [command, setCommand] = useState<string>("");
+    const [isListening, setIsListening] = useState<boolean>(false);
+  
+    const handleVoiceCommand = (command: string) => {
+      setCommand(command);
+      alert(`Command received: ${command}`); // Debugging
+      CommandList(command, navigation); // Use the command handler
+    };
+  
+    const startListening = () => {
+      setIsListening(true);
+      VoiceService.startListening(handleVoiceCommand);
+    };
     const path = [
         {name:'Home', url: '/Ordis/app/home', icon: homeOutline},
         {name:'About', url: '/Ordis/app/about', icon: rocketOutline},
@@ -40,6 +60,15 @@ import About from './About';
                                 </IonItem>
                             </IonMenuToggle>
                         ))}
+
+                <IonText>
+                    <p>Click the button and say something!</p>
+                 </IonText>
+                <IonButton onClick={startListening} disabled={isListening}>
+                      {isListening ? "Listening..." : "Start Voice Command"}
+                </IonButton>
+                {command && <p>You said: <strong>{command}</strong></p>}
+
         <IonButton routerLink="/Ordis" routerDirection="back" expand="full">
                             <IonIcon icon={logOutOutline} slot="start"> </IonIcon>
                         Logout

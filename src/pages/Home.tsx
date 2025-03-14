@@ -9,11 +9,11 @@ import {
   import { IonReactRouter } from '@ionic/react-router';
   import {map,mic} from 'ionicons/icons';
   import { Route, Redirect } from 'react-router';
-  import routes from "../config/Routes";
+import Maps from './home.tabs/Maps';
+
   const Home: React.FC = () => {
     const tabs = [
       {name:'Maps', tab:'maps',url: '/Ordis/app/home/maps', icon:map},
-      {name:'Voice Command', tab:'voiceCommand',url: '/Ordis/app/home/voiceCommand', icon:mic},
     ]
     return (
       <IonReactRouter>
@@ -29,18 +29,7 @@ import {
           
         </IonTabBar>S
       <IonRouterOutlet>
-
-      {routes.map((route, index) => (
-            <Route
-              key={index}
-              path={route.path}
-              component={route.component}
-              render={route.render}
-              exact={route.exact}
-            />
-          ))}
-
-
+        <Route exact path="/Ordis/app/home/maps" render={Maps} />
         <Route exact path="/Ordis/app/home">
           <Redirect to="/Ordis/app/home/maps" />
         </Route>
