@@ -14,9 +14,9 @@ import {
       IonToolbar,
       IonText,
       useIonRouter,
-      IonPopover
+      IonPopover,
   } from '@ionic/react'
-import React, { useState,useRef} from "react";
+import React, { useState} from "react";
 import {homeOutline, logOutOutline, rocketOutline} from 'ionicons/icons';
 import { Redirect, Route } from 'react-router';
 import Home from './Home';
@@ -29,14 +29,17 @@ import Aicom from '../components/images/AIf.gif';
     const navigation = useIonRouter();
     const [command, setCommand] = useState<string>("");
     const [isListening, setIsListening] = useState<boolean>(false);
+    const [showFirstPopover, setShowFirstPopover] = useState(false);
+    const [showSecondPopover, setShowSecondPopover] = useState(false);
   
     const handleVoiceCommand = (command: string) => {
       setCommand(command);
-      alert(`Command received: ${command}`); // Debugging
-      CommandList(command, navigation); // Use the command handler
+      setShowSecondPopover(true);
+      CommandList(command, navigation);
     };
   
     const startListening = () => {
+      setShowFirstPopover(true);
       setIsListening(true);
       VoiceService.startListening(handleVoiceCommand);
     };
@@ -44,7 +47,7 @@ import Aicom from '../components/images/AIf.gif';
         {name:'Home', url: '/Ordis/app/home', icon: homeOutline},
         {name:'About', url: '/Ordis/app/about', icon: rocketOutline},
     ]
-  const [showPopover, setShowPopover] = useState(false);
+
     return (
         <>
       <IonMenu contentId="main-content">
@@ -62,15 +65,25 @@ import Aicom from '../components/images/AIf.gif';
                                 </IonItem>
                             </IonMenuToggle>
                         ))}
+                     <IonPopover
+                        isOpen={showSecondPopover}
+                        onDidDismiss={() => setShowSecondPopover(false)}
+                        trigger="popover-trigger" 
+                       >
+                        <IonContent class="ion-padding">
+                          <p>Command received: {command}</p>
+                        </IonContent>
+                     </IonPopover>
                      <IonPopover trigger="click-trigger" triggerAction="click">
                         <IonContent class="ion-padding">Hi I'm Ordis! what can I do for you?</IonContent>
-                        </IonPopover>
+                      </IonPopover>
                     <img
                       id="click-trigger"
                       src={Aicom}
                       onClick={startListening} 
                       style={{ cursor: 'pointer' }}
                     />
+                     <button id="command-trigger" style={{ display: 'none' }}></button>
                     <IonButton routerLink="/Ordis" routerDirection="back" expand="full">
                       <IonIcon icon={logOutOutline} slot="start"> </IonIcon>
                       Logout
