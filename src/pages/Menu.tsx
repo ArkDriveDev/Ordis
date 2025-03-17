@@ -34,6 +34,7 @@ import Aicom from '../components/images/AIf.gif';
   
     const handleVoiceCommand = (command: string) => {
       setCommand(command);
+      setShowFirstPopover(false);
       setShowSecondPopover(true);
       CommandList(command, navigation);
     };
