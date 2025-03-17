@@ -62,7 +62,11 @@ import Aicom from '../components/images/AIf.gif';
                                 </IonItem>
                             </IonMenuToggle>
                         ))}
+                     <IonPopover trigger="click-trigger" triggerAction="click">
+                        <IonContent class="ion-padding">Hi I'm Ordis! what can I do for you?</IonContent>
+                        </IonPopover>
                     <img
+                      id="click-trigger"
                       src={Aicom}
                       onClick={startListening} 
                       style={{ cursor: 'pointer' }}
@@ -77,7 +81,7 @@ import Aicom from '../components/images/AIf.gif';
         <IonHeader>
           <IonToolbar>
             <IonButtons slot="start">
-              <IonMenuButton id="click-trigger"></IonMenuButton>
+              <IonMenuButton ></IonMenuButton>
             </IonButtons>
             <IonTitle>Menu</IonTitle>
           </IonToolbar>
