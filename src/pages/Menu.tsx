@@ -23,7 +23,7 @@ import Home from './Home';
 import About from './About';
 import VoiceService from "../services/VoiceService";
 import CommandList from "../services/CommandList"; 
-import Aicom from '../components/images/AIf.gif'; 
+import Aicom from '../components/images/Ordiss.gif'; 
 
   const Menu: React.FC = () => {
     const navigation = useIonRouter();
@@ -100,12 +100,14 @@ import Aicom from '../components/images/AIf.gif';
                       </IonPopover>
 
                       <p>Say your command or Click Ordis to listen to your command:</p>
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '40vh' }}>
                     <img
                       id="click-trigger"
                       src={Aicom}
                       onClick={startListening} 
                       style={{ cursor: 'pointer' }}
                     />
+                    </div>
                      <button id="command-trigger" style={{ display: 'none' }}></button>
                     <IonButton routerLink="/Ordis" routerDirection="back" expand="full">
                       <IonIcon icon={logOutOutline} slot="start"> </IonIcon>
