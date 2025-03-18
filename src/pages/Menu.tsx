@@ -54,19 +54,26 @@ import Aicom from '../components/images/Ordiss.gif';
       return () => clearTimeout(timer); 
     }, [showSecondPopover]);
 
-    const speakText = (text: string) => {
+    const speakText = (text: string, onFinish: () => void) => {
       if ('speechSynthesis' in window) {
-        setIsSpeaking(true); 
+        setIsSpeaking(true);
         const utterance = new SpeechSynthesisUtterance(text);
+        
         utterance.voice = speechSynthesis.getVoices()[0]; 
-        utterance.rate = 1; 
+        utterance.rate = 1;
         utterance.pitch = 1;
-        utterance.onend = () => setIsSpeaking(false); 
+       
+        utterance.onend = () => {
+          setIsSpeaking(false);
+          onFinish(); 
+        };
+        
         speechSynthesis.speak(utterance);
       } else {
         console.error('Text-to-speech is not supported in this browser.');
       }
     };
+    
 
     const handleVoiceCommand = (command: string) => {
       setCommand(command);
@@ -74,17 +81,19 @@ import Aicom from '../components/images/Ordiss.gif';
       setShowSecondPopover(true);
 
       const responseText1 = `You said: ${command}. How can I assist you further?`;
-      speakText(responseText1);
+      speakText(responseText1,() =>{});
       
       CommandList(command, navigation);
     };
   
     const startListening = () => {
-      const responseText2 = `Hi I'm Suda! what can I do for you?`;
-      speakText(responseText2);
-      setShowFirstPopover(true);
-      setIsListening(true);
-      VoiceService.startListening(handleVoiceCommand);
+      const responseText2 = `Hi I'm Suda! What can I do for you?`;
+
+      speakText(responseText2, () => {
+        setShowFirstPopover(true);
+        setIsListening(true);
+        VoiceService.startListening(handleVoiceCommand);
+      });
     };
     const path = [
         {name:'Home', url: '/Ordis/app/home', icon: homeOutline},
