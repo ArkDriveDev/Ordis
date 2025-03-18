@@ -16,7 +16,7 @@ import {
       useIonRouter,
       IonPopover,
   } from '@ionic/react'
-import React, { useState} from "react";
+import React, { useState, useEffect} from "react";
 import {homeOutline, logOutOutline, rocketOutline} from 'ionicons/icons';
 import { Redirect, Route } from 'react-router';
 import Home from './Home';
@@ -32,6 +32,26 @@ import Aicom from '../components/images/AIf.gif';
     const [showFirstPopover, setShowFirstPopover] = useState(false);
     const [showSecondPopover, setShowSecondPopover] = useState(false);
   
+    useEffect(() => {
+      let timer: NodeJS.Timeout;
+      if (showFirstPopover) {
+        timer = setTimeout(() => {
+          setShowFirstPopover(false);
+        }, 2000); 
+      }
+      return () => clearTimeout(timer); 
+    }, [showFirstPopover]);
+  
+   
+    useEffect(() => {
+      let timer: NodeJS.Timeout;
+      if (showSecondPopover) {
+        timer = setTimeout(() => {
+          setShowSecondPopover(false);
+        }, 2000); 
+      }
+      return () => clearTimeout(timer); 
+    }, [showSecondPopover]);
     const handleVoiceCommand = (command: string) => {
       setCommand(command);
       setShowFirstPopover(false);
@@ -95,7 +115,8 @@ import Aicom from '../components/images/AIf.gif';
         <IonHeader>
           <IonToolbar>
             <IonButtons slot="start">
-              <IonMenuButton ></IonMenuButton>
+            <IonMenuButton
+        onClick={startListening}/>
             </IonButtons>
             <IonTitle>Menu</IonTitle>
           </IonToolbar>
