@@ -31,6 +31,7 @@ import Aicom from '../components/images/Ordiss.gif';
     const [isListening, setIsListening] = useState<boolean>(false);
     const [showFirstPopover, setShowFirstPopover] = useState(false);
     const [showSecondPopover, setShowSecondPopover] = useState(false);
+    const [isSpeaking, setIsSpeaking] = useState(false);
   
     useEffect(() => {
       let timer: NodeJS.Timeout;
@@ -52,14 +53,35 @@ import Aicom from '../components/images/Ordiss.gif';
       }
       return () => clearTimeout(timer); 
     }, [showSecondPopover]);
+
+    const speakText = (text: string) => {
+      if ('speechSynthesis' in window) {
+        setIsSpeaking(true); 
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.voice = speechSynthesis.getVoices()[0]; 
+        utterance.rate = 1; 
+        utterance.pitch = 1;
+        utterance.onend = () => setIsSpeaking(false); 
+        speechSynthesis.speak(utterance);
+      } else {
+        console.error('Text-to-speech is not supported in this browser.');
+      }
+    };
+
     const handleVoiceCommand = (command: string) => {
       setCommand(command);
       setShowFirstPopover(false);
       setShowSecondPopover(true);
+
+      const responseText1 = `You said: ${command}. How can I assist you further?`;
+      speakText(responseText1);
+      
       CommandList(command, navigation);
     };
   
     const startListening = () => {
+      const responseText2 = `Hi I'm Suda! what can I do for you?`;
+      speakText(responseText2);
       setShowFirstPopover(true);
       setIsListening(true);
       VoiceService.startListening(handleVoiceCommand);
@@ -96,7 +118,7 @@ import Aicom from '../components/images/Ordiss.gif';
                         </IonContent>
                      </IonPopover>
                      <IonPopover trigger="click-trigger" triggerAction="click">
-                        <IonContent class="ion-padding">Hi I'm Ordis! what can I do for you?</IonContent>
+                        <IonContent class="ion-padding">Hi I'm Suda! what can I do for you?</IonContent>
                       </IonPopover>
 
                       <p>Say your command or Click Ordis to listen to your command:</p>
