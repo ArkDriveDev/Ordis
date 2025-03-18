@@ -98,6 +98,8 @@ import Aicom from '../components/images/AIf.gif';
                      <IonPopover trigger="click-trigger" triggerAction="click">
                         <IonContent class="ion-padding">Hi I'm Ordis! what can I do for you?</IonContent>
                       </IonPopover>
+
+                      <p>Say your command or Click Ordis to listen to your command:</p>
                     <img
                       id="click-trigger"
                       src={Aicom}
