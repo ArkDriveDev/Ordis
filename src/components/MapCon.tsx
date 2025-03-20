@@ -2,11 +2,11 @@ import { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import pins from "./Pins.json"; // Import JSON directly
+import pins from "./Pins.json"; 
 
-// Import your custom marker images
-import defaultMarkerIcon from "./images/blue.png"; // Default marker image
-import activeMarkerIcon from "./images/green.png"; // Active marker image
+
+import defaultMarkerIcon from "./images/blue.png"; 
+import activeMarkerIcon from "./images/green.png"; 
 
 interface MarkerData {
   roomID: number;
@@ -30,7 +30,7 @@ const MapCon: React.FC = () => {
   const [activeMarkerId, setActiveMarkerId] = useState<number | null>(null); 
 
   const handleMarkerClick = (markerId: number) => {
-    setActiveMarkerId(markerId); // Set the clicked marker as active
+    setActiveMarkerId(markerId); 
   };
 
   return (
