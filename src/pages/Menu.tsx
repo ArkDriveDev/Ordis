@@ -17,13 +17,14 @@ import {
       IonPopover,
   } from '@ionic/react'
 import React, { useState, useEffect} from "react";
-import {homeOutline, logOutOutline, rocketOutline} from 'ionicons/icons';
+import {homeOutline, logOutOutline, mapOutline, rocketOutline} from 'ionicons/icons';
 import { Redirect, Route } from 'react-router';
 import Home from './Home';
 import About from './About';
 import VoiceService from "../services/VoiceService";
 import CommandList from "../services/CommandList"; 
 import Aicom from '../components/images/Ordiss.gif'; 
+import Nav from './Nav';
 
   const Menu: React.FC = () => {
     const navigation = useIonRouter();
@@ -97,7 +98,9 @@ import Aicom from '../components/images/Ordiss.gif';
     };
     const path = [
         {name:'Home', url: '/Ordis/app/home', icon: homeOutline},
+        {name:'Navigation', url: '/Ordis/app/nav', icon: mapOutline},
         {name:'About', url: '/Ordis/app/about', icon: rocketOutline},
+       
     ]
 
     return (
@@ -130,7 +133,7 @@ import Aicom from '../components/images/Ordiss.gif';
                         <IonContent class="ion-padding">Hi I'm Suda! what can I do for you?</IonContent>
                       </IonPopover>
 
-                      <p>Say your command or Click Ordis to listen to your command:</p>
+                      <p>Say your command or Click Suda to listen to your command:</p>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '40vh' }}>
                     <img
                       id="click-trigger"
@@ -159,6 +162,7 @@ import Aicom from '../components/images/Ordiss.gif';
         <IonContent className="ion-padding">
         <IonRouterOutlet id="main">
                     <Route exact path="/Ordis/app/home" component={Home} />
+                    <Route exact path="/Ordis/app/nav" component={Nav} />
                     <Route exact path="/Ordis/app/about" component={About} />
 
                     <Route exact path="/Ordis/app">
