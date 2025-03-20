@@ -12,7 +12,6 @@ import {
       IonRouterOutlet, 
       IonTitle, 
       IonToolbar,
-      IonText,
       useIonRouter,
       IonPopover,
   } from '@ionic/react'
