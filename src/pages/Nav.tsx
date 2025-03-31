@@ -1,6 +1,7 @@
 import React from 'react';
 import { clipboardOutline, documentOutline, documentsOutline, folderOutline, newspaperOutline, readerOutline, squareOutline } from 'ionicons/icons'; 
-import { IonButtons, IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonIcon } from '@ionic/react';
+import { IonButtons, IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonIcon} from '@ionic/react';
+import { Link } from 'react-router-dom'; 
 import bgi from '../components/images/Tecno.gif';  
 import nodes from '../components/images/Navi.png';  
 
@@ -59,16 +60,18 @@ const Nav: React.FC = () => {
           }}
         />
 
-        <IonIcon 
-          icon={clipboardOutline} 
-          style={{
-            ...blinkStyle,
-            top: '19%',
-            left: '48%',
-            color: '#87CEEB',
-            animationDelay: '0.1s'
-          }}
-        />
+        <Link to="/Ordis/app/schedule"> 
+          <IonIcon 
+            icon={clipboardOutline}
+            style={{
+              ...blinkStyle,
+              top: '19%',
+              left: '48%',
+              color: '#87CEEB',
+              animationDelay: '0.1s',
+            }}
+          />
+        </Link>
 
         <IonIcon 
           icon={documentOutline} 

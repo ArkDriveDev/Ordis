@@ -15,7 +15,7 @@ import {
           <IonToolbar>
             <IonButtons slot='start'>
             </IonButtons>
-            <IonTitle>Maps</IonTitle>
+            <IonTitle>Schedule</IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonContent fullscreen>

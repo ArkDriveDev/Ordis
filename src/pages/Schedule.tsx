@@ -11,9 +11,9 @@ import {
   import { Route, Redirect } from 'react-router';
 import Maps from './home.tabs/Maps';
 
-  const Home: React.FC = () => {
+  const Schedule: React.FC = () => {
     const tabs = [
-      {name:'Maps', tab:'maps',url: '/Ordis/app/home/maps', icon:map},
+      {name:'Maps', tab:'maps',url: '/Ordis/app/Schedule/maps', icon:map},
     ]
     return (
       <IonReactRouter>
@@ -29,9 +29,9 @@ import Maps from './home.tabs/Maps';
           
         </IonTabBar>S
       <IonRouterOutlet>
-        <Route exact path="/Ordis/app/home/maps" render={Maps} />
-        <Route exact path="/Ordis/app/home">
-          <Redirect to="/Ordis/app/home/maps" />
+        <Route exact path="/Ordis/app/schedule/maps" render={Maps} />
+        <Route exact path="/Ordis/app/schedule">
+          <Redirect to="/Ordis/app/schedule/maps" />
         </Route>
 
       </IonRouterOutlet>
@@ -40,4 +40,4 @@ import Maps from './home.tabs/Maps';
     );
   };
   
-  export default Home;
+  export default Schedule;

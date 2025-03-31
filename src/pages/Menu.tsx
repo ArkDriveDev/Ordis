@@ -16,15 +16,15 @@ import {
       IonPopover,
   } from '@ionic/react'
 import React, { useState, useEffect} from "react";
-import {homeOutline, logOutOutline, mapOutline, person, rocketOutline} from 'ionicons/icons';
+import {logOutOutline, mapOutline, person, rocketOutline} from 'ionicons/icons';
 import { Redirect, Route } from 'react-router';
-import Home from './Home';
 import About from './About';
 import VoiceService from "../services/VoiceService";
 import CommandList from "../services/CommandList"; 
 import Aicom from '../components/images/Ordiss.gif'; 
 import Nav from './Nav';
 import Account from './Account';
+import Schedule from './Schedule';
 
   const Menu: React.FC = () => {
     const navigation = useIonRouter();
@@ -97,7 +97,6 @@ import Account from './Account';
       });
     };
     const path = [
-        {name:'Home', url: '/Ordis/app/home', icon: homeOutline},
         {name:'Navigation', url: '/Ordis/app/nav', icon: mapOutline},
         {name:'About', url: '/Ordis/app/about', icon: rocketOutline},
         {name:'Account', url: '/Ordis/app/account', icon: person},
@@ -161,15 +160,15 @@ import Account from './Account';
         </IonHeader>
         <IonContent className="ion-padding">
         <IonRouterOutlet id="main">
-                    <Route exact path="/Ordis/app/home" component={Home} />
+                    <Route exact path="/Ordis/app/schedule" component={Schedule} />
                     <Route exact path="/Ordis/app/nav" component={Nav} />
                     <Route exact path="/Ordis/app/about" component={About} />
                     <Route exact path="/Ordis/app/account" component={Account} />
 
                     <Route exact path="/Ordis/app">
-                        <Redirect to="/Ordis/app/home"/>
+                        <Redirect to="/Ordis/app/nav"/>
                     </Route>
-                </IonRouterOutlet>
+        </IonRouterOutlet>
         </IonContent>
       </IonPage>
     </>
