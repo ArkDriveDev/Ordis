@@ -1,7 +1,8 @@
 import React from 'react';
-import { IonButtons, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import bgi from '../components/images/background.gif';  
-import nodes from '../components/images/node.png';  
+import { clipboardOutline, documentOutline, documentsOutline, folderOutline, newspaperOutline, readerOutline, squareOutline } from 'ionicons/icons'; 
+import { IonButtons, IonContent, IonHeader, IonPage, IonTitle, IonToolbar,IonIcon  } from '@ionic/react';
+import bgi from '../components/images/Tecno.gif';  
+import nodes from '../components/images/Navi.png';  
 
 const Nav: React.FC = () => {
 
@@ -36,8 +37,106 @@ const Nav: React.FC = () => {
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)', 
-            width: '100%',  
+            width: '30%',  
             zIndex: 1,  
+          }}
+        />
+
+        <IonIcon 
+          icon={clipboardOutline} 
+          style={{
+            position: 'absolute',
+            top: '19%',  
+            left: '48%',   
+            fontSize: '48px',
+            color: '#87CEEB', 
+            zIndex: 10,
+            filter: 'drop-shadow(0 0 8px white)', 
+            transform: 'rotate(45deg)', 
+          }}
+        />
+
+        <IonIcon 
+          icon={documentOutline} 
+          style={{
+            position: 'absolute',
+            top: '30%',  
+            left: '39%',   
+            fontSize: '48px',
+            color: '#87CEEB', 
+            zIndex: 10,
+            filter: 'drop-shadow(0 0 8px white)', 
+            transform: 'rotate(45deg)', 
+          }}
+        />
+
+       <IonIcon 
+          icon={folderOutline} 
+          style={{
+            position: 'absolute',
+            top: '30%',  
+            left: '57%',   
+            fontSize: '48px',
+            color: '#87CEEB', 
+            zIndex: 10,
+            filter: 'drop-shadow(0 0 8px white)', 
+            transform: 'rotate(45deg)', 
+          }}
+        />
+
+        <IonIcon 
+          icon={newspaperOutline} 
+          style={{
+            position: 'absolute',
+            top: '62%',  
+            left: '39%',   
+            fontSize: '48px',
+            color: '#87CEEB', 
+            zIndex: 10,
+            filter: 'drop-shadow(0 0 8px white)', 
+            transform: 'rotate(45deg)', 
+          }}
+        />
+
+       <IonIcon 
+          icon={readerOutline} 
+          style={{
+            position: 'absolute',
+            top: '62%',  
+            left: '57%',   
+            fontSize: '48px',
+            color: '#87CEEB', 
+            zIndex: 10,
+            filter: 'drop-shadow(0 0 8px white)', 
+            transform: 'rotate(45deg)', 
+          }}
+        />
+
+      <IonIcon 
+          icon={documentsOutline} 
+          style={{
+            position: 'absolute',
+            top: '73%',  
+            left: '48%',   
+            fontSize: '48px',
+            color: '#87CEEB', 
+            zIndex: 10,
+            filter: 'drop-shadow(0 0 8px white)', 
+            transform: 'rotate(45deg)', 
+          }}
+        />
+
+        <IonIcon 
+          icon={squareOutline} 
+          style={{
+            position: 'absolute',
+            top: '42%',  
+            left: '46%',   
+            fontSize: '100px',
+            color: '#000000', 
+            zIndex: 10,
+            filter: 'drop-shadow(0 0 8px white)', 
+            transform: 'rotate(45deg)', 
           }}
         />
       </IonContent>
