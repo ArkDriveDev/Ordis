@@ -1,13 +1,30 @@
 import React from 'react';
 import { clipboardOutline, documentOutline, documentsOutline, folderOutline, newspaperOutline, readerOutline, squareOutline } from 'ionicons/icons'; 
-import { IonButtons, IonContent, IonHeader, IonPage, IonTitle, IonToolbar,IonIcon  } from '@ionic/react';
+import { IonButtons, IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonIcon } from '@ionic/react';
 import bgi from '../components/images/Tecno.gif';  
 import nodes from '../components/images/Navi.png';  
 
 const Nav: React.FC = () => {
+  // Blinking animation style
+  const blinkStyle = {
+    animation: 'blink 2s infinite',
+    position: 'absolute',
+    fontSize: '48px',
+    zIndex: 10,
+    filter: 'drop-shadow(0 0 8px white)',
+    transform: 'rotate(45deg)',
+  };
 
   return (
     <IonPage style={{ position: 'relative', height: '100vh' }}>
+      <style>{`
+        @keyframes blink {
+          0% { opacity: 0.3; }
+          50% { opacity: 1; }
+          100% { opacity: 0.3; }
+        }
+      `}</style>
+      
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start"></IonButtons>
@@ -45,98 +62,78 @@ const Nav: React.FC = () => {
         <IonIcon 
           icon={clipboardOutline} 
           style={{
-            position: 'absolute',
-            top: '19%',  
-            left: '48%',   
-            fontSize: '48px',
-            color: '#87CEEB', 
-            zIndex: 10,
-            filter: 'drop-shadow(0 0 8px white)', 
-            transform: 'rotate(45deg)', 
+            ...blinkStyle,
+            top: '19%',
+            left: '48%',
+            color: '#87CEEB',
+            animationDelay: '0.1s'
           }}
         />
 
         <IonIcon 
           icon={documentOutline} 
           style={{
-            position: 'absolute',
-            top: '30%',  
-            left: '39%',   
-            fontSize: '48px',
-            color: '#87CEEB', 
-            zIndex: 10,
-            filter: 'drop-shadow(0 0 8px white)', 
-            transform: 'rotate(45deg)', 
+            ...blinkStyle,
+            top: '30%',
+            left: '39%',
+            color: '#FF5733',
+            animationDelay: '0.3s'
           }}
         />
 
-       <IonIcon 
+        <IonIcon 
           icon={folderOutline} 
           style={{
-            position: 'absolute',
-            top: '30%',  
-            left: '57%',   
-            fontSize: '48px',
-            color: '#87CEEB', 
-            zIndex: 10,
-            filter: 'drop-shadow(0 0 8px white)', 
-            transform: 'rotate(45deg)', 
+            ...blinkStyle,
+            top: '30%',
+            left: '57%',
+            color: '#33FF57',
+            animationDelay: '0.5s'
           }}
         />
 
         <IonIcon 
           icon={newspaperOutline} 
           style={{
-            position: 'absolute',
-            top: '62%',  
-            left: '39%',   
-            fontSize: '48px',
-            color: '#87CEEB', 
-            zIndex: 10,
-            filter: 'drop-shadow(0 0 8px white)', 
-            transform: 'rotate(45deg)', 
+            ...blinkStyle,
+            top: '62%',
+            left: '39%',
+            color: '#FF33F1',
+            animationDelay: '0.7s'
           }}
         />
 
-       <IonIcon 
+        <IonIcon 
           icon={readerOutline} 
           style={{
-            position: 'absolute',
-            top: '62%',  
-            left: '57%',   
-            fontSize: '48px',
-            color: '#87CEEB', 
-            zIndex: 10,
-            filter: 'drop-shadow(0 0 8px white)', 
-            transform: 'rotate(45deg)', 
+            ...blinkStyle,
+            top: '62%',
+            left: '57%',
+            color: '#33F1FF',
+            animationDelay: '0.9s'
           }}
         />
 
-      <IonIcon 
+        <IonIcon 
           icon={documentsOutline} 
           style={{
-            position: 'absolute',
-            top: '73%',  
-            left: '48%',   
-            fontSize: '48px',
-            color: '#87CEEB', 
-            zIndex: 10,
-            filter: 'drop-shadow(0 0 8px white)', 
-            transform: 'rotate(45deg)', 
+            ...blinkStyle,
+            top: '73%',
+            left: '48%',
+            color: '#F1FF33',
+            animationDelay: '1.1s'
           }}
         />
 
         <IonIcon 
           icon={squareOutline} 
           style={{
-            position: 'absolute',
-            top: '42%',  
-            left: '46%',   
+            ...blinkStyle,
+            top: '42%',
+            left: '46%',
             fontSize: '100px',
-            color: '#000000', 
-            zIndex: 10,
-            filter: 'drop-shadow(0 0 8px white)', 
-            transform: 'rotate(45deg)', 
+            color: '#000000',
+            animation: 'blink 1.5s infinite',
           }}
         />
       </IonContent>
