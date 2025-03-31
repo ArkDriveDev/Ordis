@@ -6,6 +6,12 @@ const CommandList = (command: string, navigation: ReturnType<typeof useIonRouter
   else if (command.includes("about")) { 
     navigation.push('/Ordis/app/about', 'forward', 'replace');
   }
+  else if (command.includes("nav")) { 
+    navigation.push('/Ordis/app/nav', 'forward', 'replace');
+  }
+  else if (command.includes("account")) { 
+    navigation.push('/Ordis/app/account', 'forward', 'replace');
+  }
   else if (command.includes("time")) {
     alert(`The time is ${new Date().toLocaleTimeString()}`);
   } else {
