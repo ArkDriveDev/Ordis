@@ -25,8 +25,34 @@ import Aicom from '../components/images/Ordiss.gif';
 import Nav from './Nav';
 import Account from './Account';
 import Schedule from './Schedule';
+import Mobilenav from './Mobilenav';
 
   const Menu: React.FC = () => {
+
+    const useMobileCheck = () => {
+      const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
+    
+      useEffect(() => {
+        const handleResize = () => {
+          setIsMobile(window.innerWidth < 768);
+        };
+    
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+      }, []);
+    
+      return isMobile;
+    };
+    const isMobile = useMobileCheck();
+    const ResponsiveRedirect = () => {
+    
+      return isMobile ? (
+        <Redirect to="/Ordis/app/mobilenav" />
+      ) : (
+        <Redirect to="/Ordis/app/nav" />
+      );
+    };
+    
     const navigation = useIonRouter();
     const [command, setCommand] = useState<string>("");
     const [isListening, setIsListening] = useState<boolean>(false);
@@ -97,7 +123,7 @@ import Schedule from './Schedule';
       });
     };
     const path = [
-        {name:'Navigation', url: '/Ordis/app/nav', icon: mapOutline},
+        {name:'Navigation', url: useMobileCheck() ? '/Ordis/app/mobilenav' : '/Ordis/app/nav', icon: mapOutline},
         {name:'About', url: '/Ordis/app/about', icon: rocketOutline},
         {name:'Account', url: '/Ordis/app/account', icon: person},
        
@@ -162,11 +188,12 @@ import Schedule from './Schedule';
         <IonRouterOutlet id="main">
                     <Route exact path="/Ordis/app/schedule" component={Schedule} />
                     <Route exact path="/Ordis/app/nav" component={Nav} />
+                    <Route exact path="/Ordis/app/mobilenav" component={Mobilenav} />
                     <Route exact path="/Ordis/app/about" component={About} />
                     <Route exact path="/Ordis/app/account" component={Account} />
 
                     <Route exact path="/Ordis/app">
-                        <Redirect to="/Ordis/app/nav"/>
+                        <ResponsiveRedirect />
                     </Route>
         </IonRouterOutlet>
         </IonContent>

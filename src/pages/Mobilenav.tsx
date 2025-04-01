@@ -3,9 +3,10 @@ import { clipboardOutline, documentOutline, documentsOutline, folderOutline, new
 import { IonButtons, IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonIcon} from '@ionic/react';
 import { Link } from 'react-router-dom'; 
 import bgi from '../components/images/Tecno.gif';  
-import nodes from '../components/images/Navi.png';  
+import nodes from '../components/images/Navi.png'; 
 
-const Nav: React.FC = () => {
+
+const Mobilenav: React.FC = () => {
   const blinkStyle = {
     animation: 'blink 2s infinite',
     position: 'absolute',
@@ -45,7 +46,6 @@ const Nav: React.FC = () => {
             zIndex: -1,  
           }}
         />
-        
         <img
           src={nodes}
           alt="nodes"
@@ -54,11 +54,10 @@ const Nav: React.FC = () => {
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)', 
-            width: '30%',  
+            width: '52%',  
             zIndex: 1,  
           }}
         />
-
         <Link to="/Ordis/app/schedule"> 
           <IonIcon 
             icon={clipboardOutline}
@@ -67,6 +66,7 @@ const Nav: React.FC = () => {
               top: '19%',
               left: '48%',
               color: '#87CEEB',
+              fontSize: '30px',
               animationDelay: '0.1s',
             }}
           />
@@ -77,8 +77,9 @@ const Nav: React.FC = () => {
           style={{
             ...blinkStyle,
             top: '30%',
-            left: '39%',
+            left: '32%',
             color: '#33F1FF',
+            fontSize: '30px',
             animationDelay: '0.3s'
           }}
         />
@@ -88,8 +89,9 @@ const Nav: React.FC = () => {
           style={{
             ...blinkStyle,
             top: '30%',
-            left: '57%',
+            left: '63%',
             color: '#33F1FF',
+            fontSize: '30px',
             animationDelay: '0.5s'
           }}
         />
@@ -99,8 +101,9 @@ const Nav: React.FC = () => {
           style={{
             ...blinkStyle,
             top: '62%',
-            left: '39%',
+            left: '32%',
             color: '#87CEEB',
+            fontSize: '30px',
             animationDelay: '0.7s'
           }}
         />
@@ -110,8 +113,9 @@ const Nav: React.FC = () => {
           style={{
             ...blinkStyle,
             top: '62%',
-            left: '57%',
+            left: '63%',
             color: '#87CEEB',
+            fontSize: '30px',
             animationDelay: '0.9s'
           }}
         />
@@ -123,6 +127,7 @@ const Nav: React.FC = () => {
             top: '73%',
             left: '48%',
             color: '#33F1FF',
+            fontSize: '30px',
             animationDelay: '1.1s'
           }}
         />
@@ -131,10 +136,10 @@ const Nav: React.FC = () => {
           icon={squareOutline} 
           style={{
             ...blinkStyle,
-            top: '42%',
-            left: '46%',
-            fontSize: '100px',
+            top: '41%',
+            left: '43%',
             color: '#000000',
+            fontSize: '70px',
             animation: 'blink 1.5s infinite',
           }}
         />
@@ -143,4 +148,4 @@ const Nav: React.FC = () => {
   );
 };
 
-export default Nav;
+export default Mobilenav;
